@@ -12,3 +12,37 @@
 pip3 install -r requirements.txt
 ```
 
+
+```
+python3 manage.py migrate
+```
+
+出现的结果如下：
+
+```
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, glgl_app, sessions
+Running migrations:
+  No migrations to apply.
+```
+
+
+
+迁移数据库
+
+在上一步所在的位置运行如下命令迁移数据库：
+
+python manage.py migrate
+创建后台管理员账户
+
+在上一步所在的位置运行如下命令创建后台管理员账户
+
+python manage.py createsuperuser
+具体请参阅 在 Django Admin 后台发布文章
+
+运行开发服务器
+
+在上一步所在的位置运行如下命令开启开发服务器：
+
+python manage.py runserver
+在浏览器输入：127.0.0.1:8000
