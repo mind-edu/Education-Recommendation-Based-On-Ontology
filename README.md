@@ -46,3 +46,5 @@ python manage.py createsuperuser
 
 python manage.py runserver
 在浏览器输入：127.0.0.1:8000
+
+这个项目能够运行起来的
