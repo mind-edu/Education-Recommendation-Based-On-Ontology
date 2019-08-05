@@ -12,3 +12,12 @@ python3 manage.py dumpdata > datadump.json
 ```
 
 导出数据到json
+
+
+## 运行本体的展示
+
+```
+        self.sparql = SPARQLWrapper("http://localhost:3030/%s/sparql" % dataset,
+```
+
+对的，端口号是3000， 这个怎么运行的啊
