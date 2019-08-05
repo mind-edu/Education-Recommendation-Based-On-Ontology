@@ -21,3 +21,13 @@ python3 manage.py dumpdata > datadump.json
 ```
 
 对的，端口号是3000， 这个怎么运行的啊
+
+
+运行 Fuseki 的服务器的，dataset就是数据的
+
+### 事先将三元组数据导入tdb
+
+```
+但是现在的Fuseki的数据已经已经生成了，怎么办？
+tdbloader --loc tdb kg_demo_movie.nt
+```
