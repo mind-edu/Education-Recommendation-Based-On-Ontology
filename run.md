@@ -32,5 +32,7 @@ python3 manage.py dumpdata > datadump.json
 tdbloader --loc tdb kg_demo_movie.nt
 
 也许是这个？
-fuseki-server --loc=dataset /math
+
+# 这个启动成功了
+fuseki-server --loc=dataset /dataset
 ```
