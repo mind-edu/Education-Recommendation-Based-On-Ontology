@@ -38,3 +38,6 @@ fuseki-server --loc=dataset /dataset
 ```
 
 拿到了这里的math.ttl 然后导入成功，从后端的Fuseki拿到了数据成功了
+
+
+这个项目的启动需要两种服务器的，一个是3030的Fuseki，一个是http://127.0.0.1:8000的Python Web端
