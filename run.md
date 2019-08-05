@@ -36,3 +36,5 @@ tdbloader --loc tdb kg_demo_movie.nt
 # 这个启动成功了
 fuseki-server --loc=dataset /dataset
 ```
+
+拿到了这里的math.ttl 然后导入成功，从后端的Fuseki拿到了数据成功了
