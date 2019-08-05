@@ -30,4 +30,7 @@ python3 manage.py dumpdata > datadump.json
 ```
 但是现在的Fuseki的数据已经已经生成了，怎么办？
 tdbloader --loc tdb kg_demo_movie.nt
+
+也许是这个？
+fuseki-server --loc=dataset /math
 ```
