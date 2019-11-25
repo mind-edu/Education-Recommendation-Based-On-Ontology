@@ -38,8 +38,8 @@ fuseki-server --loc=dataset /users
 fuseki-server --loc=dataset /math
 
 也许是这个？ 都是有用的
-
-
+```
+```
 # 这个启动成功了
 fuseki-server --loc=dataset /dataset
 ```
@@ -48,3 +48,14 @@ fuseki-server --loc=dataset /dataset
 
 
 这个项目的启动需要两种服务器的，一个是3030的Fuseki，一个是http://127.0.0.1:8000的Python Web端
+
+
+## Django 项目启动成功
+
+```
+python3 manage.py runserver
+```
+
+在浏览器上打开```http://127.0.0.1:8000```，可以看到界面的。
+
+至此，通过两个步骤项目运行成功了。
