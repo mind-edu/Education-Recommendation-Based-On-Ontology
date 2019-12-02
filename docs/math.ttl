@@ -1,0 +1,867 @@
+@prefix :      <http://www.semanticweb.org/chengboya/ontologies/2017/2/math#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix math:  <http://www.semanticweb.org/chengboya/ontologies/math#> .
+
+<http://www.semanticweb.org/chengboya/ontologies/math>
+        a             owl:Ontology ;
+        rdfs:comment  "高等数学同济第七版，工科使用" .
+
+math:math  a                math:math , owl:Class , owl:NamedIndividual ;
+        math:beginningwith  math:映射 ;
+        math:demand_is      1.0 ;
+        math:description    "高等数学上册同济第七版" ;
+        math:resource       math:id_17 , math:id_18 , math:id_19 , math:id_20 , math:id_21 , math:id_22 , math:id_12 , math:id_13 , math:id_14 , math:id_15 , math:id_16 , math:id_23 , math:id_24 , math:id_25 , math:id_26 , math:id_27 , math:id_28 , math:id_29 , math:id_30 , math:id_31 , math:id_32 , math:id_33 , math:id_34 , math:id_35 , math:id_36 , math:id_37 , math:id_38 , math:id_39 , math:id_40 , math:id_41 , math:id_42 , math:id_43 , math:id_44 , math:id_45 , math:id_46 , math:id_47 , math:id_48 , math:id_49 , math:id_50 , math:id_51 , math:id_52 , math:id_53 , math:id_54 , math:id_55 , math:id_56 , math:id_57 , math:id_58 , math:id_59 , math:id_60 , math:id_61 , math:id_62 , math:id_63 , math:id_64 , math:id_65 , math:id_66 , math:id_67 , math:id_68 , math:id_69 , math:id_70 , math:id_71 , math:id_72 , math:id_73 , math:id_74 , math:id_75 , math:id_76 , math:id_77 , math:id_78 , math:id_79 , math:id_80 , math:id_81 , math:id_82 , math:id_83 , math:id_84 , math:id_85 , math:id_86 , math:id_87 , math:id_88 , math:id_89 , math:id_90 , math:id_91 , math:id_92 , math:id_93 , math:id_94 , math:id_95 , math:id_96 , math:id_97 , math:id_98 , math:id_99 , math:id_100 , math:id_101 , math:id_102 , math:id_103 , math:id_104 , math:id_105 .
+
+math:sk_is  a         owl:ObjectProperty ;
+        rdfs:comment  "subsequent knowledge 后续知识" ;
+        rdfs:domain   math:math ;
+        rdfs:range    math:math .
+
+math:beginningwith  a  owl:ObjectProperty ;
+        rdfs:comment  "用来指定从哪一子知识点开始学习，出来指定起始的以外，其他都按照ak和sk来" ;
+        rdfs:domain   math:math ;
+        rdfs:range    math:math .
+
+math:resource  a      owl:ObjectProperty , owl:InverseFunctionalProperty ;
+        rdfs:comment  "知识点 对应 资源 math - videoid" ;
+        rdfs:domain   math:math ;
+        rdfs:range    math:video .
+
+math:video  a   owl:Class .
+
+math:demand_is  a     owl:DatatypeProperty ;
+        rdfs:comment  "大纲要求为 20% 80% 100%" ;
+        rdfs:domain   math:math ;
+        rdfs:range    xsd:float .
+
+math:description  a  owl:DatatypeProperty ;
+        rdfs:domain  math:math ;
+        rdfs:range   xsd:string .
+
+math:difficulty_is  a  owl:DatatypeProperty ;
+        rdfs:domain  math:math ;
+        rdfs:range   xsd:float .
+
+math:quality_is  a   owl:DatatypeProperty ;
+        rdfs:domain  math:math ;
+        rdfs:range   xsd:float .
+
+math:weight_is  a     owl:DatatypeProperty ;
+        rdfs:comment  "可以制定一个规则，父节点下所有边权值之和为1" , "父节点到子节点的边权值" ;
+        rdfs:domain   math:math ;
+        rdfs:range    xsd:float .
+
+math:不定积分的概念与性质  a       owl:Class , math:不定积分的概念与性质 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的不定积分 ;
+        math:demand_is   0.6 ;
+        math:resource    math:id_72 , math:id_73 , math:id_74 ;
+        math:sk_is       math:积分表 ;
+        math:weight_is   0.25 .
+
+math:函数的不定积分  a             owl:Class , math:函数的不定积分 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:不定积分的概念与性质 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_72 , math:id_73 , math:id_74 , math:id_75 , math:id_76 , math:id_77 , math:id_78 , math:id_79 , math:id_80 , math:id_81 , math:id_82 , math:id_83 ;
+        math:sk_is          math:函数的定积分 ;
+        math:weight_is      0.15 .
+
+math:元素法  a               owl:Class , math:元素法 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:定积分的应用 ;
+        math:demand_is    1.0 ;
+        math:description  "元素法的基本思想,元素法的应用" ;
+        math:resource     math:id_101 , math:id_102 ;
+        math:sk_is        math:在几何上的应用 ;
+        math:weight_is    0.45 .
+
+math:定积分的应用  a              owl:Class , math:定积分的应用 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的定积分 ;
+        math:beginningwith  math:元素法 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_101 , math:id_102 , math:id_103 , math:id_104 , math:id_105 ;
+        math:weight_is      0.25 .
+
+math:函数  a                  owl:Class , math:函数 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:math ;
+        math:beginningwith  math:函数的基本介绍 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_18 , math:id_21 , math:id_22 , math:id_12 , math:id_13 , math:id_14 , math:id_15 , math:id_23 , math:id_24 , math:id_25 , math:id_26 , math:id_27 , math:id_28 , math:id_29 , math:id_30 , math:id_31 , math:id_32 , math:id_33 , math:id_34 , math:id_35 , math:id_36 , math:id_37 , math:id_38 , math:id_39 , math:id_40 , math:id_41 , math:id_42 , math:id_43 , math:id_44 , math:id_45 , math:id_46 , math:id_47 , math:id_48 , math:id_49 , math:id_50 , math:id_51 , math:id_52 , math:id_53 , math:id_54 , math:id_55 , math:id_56 , math:id_57 , math:id_58 , math:id_59 , math:id_60 , math:id_61 , math:id_62 , math:id_63 , math:id_64 , math:id_65 , math:id_66 , math:id_67 , math:id_68 , math:id_69 , math:id_70 , math:id_71 , math:id_72 , math:id_73 , math:id_74 , math:id_75 , math:id_76 , math:id_77 , math:id_78 , math:id_79 , math:id_80 , math:id_81 , math:id_82 , math:id_83 , math:id_84 , math:id_85 , math:id_86 , math:id_87 , math:id_88 , math:id_89 , math:id_90 , math:id_91 , math:id_92 , math:id_93 , math:id_94 , math:id_95 , math:id_96 , math:id_97 , math:id_98 , math:id_99 , math:id_100 , math:id_101 , math:id_102 , math:id_103 , math:id_104 , math:id_105 ;
+        math:weight_is      0.9 .
+
+math:函数图形的描绘  a              owl:Class , math:函数图形的描绘 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:导数的应用 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_69 , math:id_70 ;
+        math:weight_is       0.2 ;
+        owl:equivalentClass  math:极值的应用：函数图形的描绘 .
+
+math:极值的应用：函数图形的描绘  a    owl:Class , math:极值的应用：函数图形的描绘 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的极值 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_69 , math:id_70 ;
+        math:weight_is   0.35 .
+
+math:导数的应用  a            owl:Class , math:导数的应用 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的导数 ;
+        math:demand_is   1.0 ;
+        math:equi        "yes" ;
+        math:resource    math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_61 , math:id_62 , math:id_63 , math:id_64 , math:id_65 , math:id_66 , math:id_69 , math:id_70 ;
+        math:weight_is   0.2 .
+
+math:函数极限的定义以及性质  a       owl:Class , math:函数极限的定义以及性质 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的极限 ;
+        math:demand_is    0.2 ;
+        math:description  "自变量趋于无穷大时的极限,自变量趋于有限值时的极限,单侧极限,函数极限性质,证明极限存在的方法" ;
+        math:sk_is        math:无穷小与无穷大 ;
+        math:weight_is    0.25 .
+
+math:函数的极限  a               owl:Class , math:函数的极限 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:函数极限的定义以及性质 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_18 , math:id_21 , math:id_22 , math:id_12 , math:id_13 , math:id_23 , math:id_24 , math:id_25 , math:id_26 , math:id_27 , math:id_28 , math:id_29 , math:id_30 , math:id_36 ;
+        math:sk_is          math:函数的连续性 ;
+        math:weight_is      0.15 .
+
+math:函数的基本介绍  a           owl:Class , math:函数的基本介绍 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数 ;
+        math:demand_is    0.6 ;
+        math:description  "函数的概念,函数的几种特性,函数的运算" ;
+        math:sk_is        math:数列极限 ;
+        math:weight_is    0.05 .
+
+math:函数的基本求导法则  a            owl:Class , math:函数的基本求导法则 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:函数的导数 ;
+        math:demand_is       1.0 ;
+        math:resource        math:id_39 , math:id_40 , math:id_41 , math:id_42 ;
+        math:sk_is           math:常数和基本初等函数的导数公式 ;
+        math:weight_is       0.15 ;
+        owl:equivalentClass  math:利用求导法则 .
+
+math:利用求导法则  a           owl:Class , math:利用求导法则 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:初等函数的求导方法 ;
+        math:demand_is   1.0 ;
+        math:equi        "yes" ;
+        math:resource    math:id_39 , math:id_40 , math:id_41 , math:id_42 ;
+        math:weight_is   0.2 .
+
+math:函数的导数  a               owl:Class , math:函数的导数 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:导数的基本概念 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_39 , math:id_40 , math:id_41 , math:id_42 , math:id_43 , math:id_44 , math:id_45 , math:id_46 , math:id_47 , math:id_52 , math:id_60 , math:id_61 , math:id_62 , math:id_63 , math:id_64 , math:id_65 , math:id_66 , math:id_69 , math:id_70 ;
+        math:weight_is      0.175 .
+
+math:函数的定积分  a              owl:Class , math:函数的定积分 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:定积分的概念与性质 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_84 , math:id_85 , math:id_86 , math:id_87 , math:id_88 , math:id_89 , math:id_90 , math:id_91 , math:id_92 , math:id_93 , math:id_94 , math:id_95 , math:id_96 , math:id_97 , math:id_98 , math:id_99 , math:id_100 , math:id_101 , math:id_102 , math:id_103 , math:id_104 , math:id_105 ;
+        math:weight_is      0.15 .
+
+math:函数的微分  a               owl:Class , math:函数的微分 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:微分的基本概念 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_48 , math:id_49 , math:id_50 , math:id_51 , math:id_53 , math:id_54 , math:id_55 , math:id_56 , math:id_57 , math:id_58 , math:id_59 ;
+        math:sk_is          math:洛必达法则 ;
+        math:weight_is      0.175 .
+
+math:函数的极值  a               owl:Class , math:函数的极值 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:极值基本概念 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_67 , math:id_68 , math:id_69 , math:id_70 , math:id_71 ;
+        math:sk_is          math:函数的不定积分 ;
+        math:weight_is      0.05 .
+
+math:函数的连续性  a              owl:Class , math:函数的连续性 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数 ;
+        math:beginningwith  math:函数连续性的基本概念 ;
+        math:demand_is      0.6 ;
+        math:resource       math:id_31 , math:id_33 , math:id_34 , math:id_35 ;
+        math:sk_is          math:函数的间断点 ;
+        math:weight_is      0.05 .
+
+math:函数的间断点  a            owl:Class , math:函数的间断点 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数 ;
+        math:demand_is    0.6 ;
+        math:description  "函数间断点的基本概念,判断不同类型的间断点" ;
+        math:resource     math:id_32 ;
+        math:sk_is        math:连续函数的和差积商运算 ;
+        math:weight_is    0.05 .
+
+math:函数连续性的基本概念  a       owl:Class , math:函数连续性的基本概念 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的连续性 ;
+        math:demand_is   0.6 ;
+        math:weight_is   0.3 .
+
+math:分部积分法  a            owl:Class , math:分部积分法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:积分方法 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_79 , math:id_80 ;
+        math:weight_is   0.5 .
+
+math:积分方法  a                owl:Class , math:积分方法 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的不定积分 ;
+        math:beginningwith  math:换元积分法 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_75 , math:id_76 , math:id_77 , math:id_78 , math:id_79 , math:id_80 ;
+        math:sk_is          math:有理函数的积分 ;
+        math:weight_is      0.3 .
+
+math:初等函数的求导方法  a           owl:Class , math:初等函数的求导方法 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的导数 ;
+        math:beginningwith  math:隐函数求导 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_39 , math:id_40 , math:id_41 , math:id_42 , math:id_45 , math:id_46 , math:id_47 , math:id_61 , math:id_62 ;
+        math:weight_is      0.2 .
+
+math:判别曲线的凹凸性和拐点  a          owl:Class , math:判别曲线的凹凸性和拐点 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:导数的应用 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_61 , math:id_62 ;
+        math:weight_is       0.2 ;
+        owl:equivalentClass  math:导数的基本概念 .
+
+math:判断函数的单调性  a             owl:Class , math:判断函数的单调性 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:导数的应用 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_61 , math:id_62 ;
+        math:weight_is       0.2 ;
+        owl:equivalentClass  math:导数的基本概念 .
+
+math:利用原函数求定积分  a            owl:Class , math:利用原函数求定积分 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:积分区间有界 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_87 , math:id_88 , math:id_89 ;
+        math:weight_is       0.25 ;
+        owl:equivalentClass  math:牛顿-莱布尼茨公式 .
+
+math:牛顿-莱布尼茨公式  a        owl:Class , math:牛顿-莱布尼茨公式 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的定积分 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_87 , math:id_88 , math:id_89 ;
+        math:sk_is       math:计算定积分的方法 ;
+        math:weight_is   0.25 .
+
+math:积分区间有界  a              owl:Class , math:积分区间有界 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:计算定积分的方法 ;
+        math:beginningwith  math:定积分的分部积分法 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_84 , math:id_85 , math:id_86 , math:id_87 , math:id_88 , math:id_89 , math:id_90 , math:id_91 , math:id_92 , math:id_93 , math:id_94 , math:id_95 ;
+        math:sk_is          math:反常积分 ;
+        math:weight_is      0.7 .
+
+math:利用基本初等函数的导数公式  a        owl:Class , math:利用基本初等函数的导数公式 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:初等函数的求导方法 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:weight_is       0.2 ;
+        owl:equivalentClass  math:常数和基本初等函数的导数公式 .
+
+math:常数和基本初等函数的导数公式  a   owl:Class , math:常数和基本初等函数的导数公式 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的导数 ;
+        math:demand_is   1.0 ;
+        math:sk_is       math:高阶导数 ;
+        math:weight_is   0.15 .
+
+math:利用定义求定积分  a             owl:Class , math:利用定义求定积分 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:积分区间有界 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_84 , math:id_85 , math:id_86 ;
+        math:weight_is       0.25 ;
+        owl:equivalentClass  math:定积分的概念与性质 .
+
+math:利用导数定义  a               owl:Class , math:利用导数定义 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:初等函数的求导方法 ;
+        math:demand_is       1.0 ;
+        math:equi            "yes" ;
+        math:resource        math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_61 , math:id_62 ;
+        math:weight_is       0.2 ;
+        owl:equivalentClass  math:导数的基本概念 .
+
+math:反常积分  a              owl:Class , math:反常积分 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:计算定积分的方法 ;
+        math:demand_is    0.6 ;
+        math:description  "无界函数的反常积分,无穷限的反常积分" ;
+        math:resource     math:id_96 , math:id_97 ;
+        math:weight_is    0.3 .
+
+math:计算定积分的方法  a            owl:Class , math:计算定积分的方法 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的定积分 ;
+        math:beginningwith  math:积分区间有界 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_84 , math:id_85 , math:id_86 , math:id_87 , math:id_88 , math:id_89 , math:id_90 , math:id_91 , math:id_92 , math:id_93 , math:id_94 , math:id_95 , math:id_96 , math:id_97 ;
+        math:sk_is          math:定积分的应用 ;
+        math:weight_is      0.25 .
+
+math:在几何上的应用  a             owl:Class , math:在几何上的应用 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:定积分的应用 ;
+        math:beginningwith  math:求平面图形的面积 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_103 , math:id_104 , math:id_105 ;
+        math:weight_is      0.55 .
+
+math:基本初等函数的微分公式与微分运算法则
+        a                owl:Class , math:基本初等函数的微分公式与微分运算法则 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的微分 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_50 , math:id_51 ;
+        math:sk_is       math:微分的三个中值定理 ;
+        math:weight_is   0.35 .
+
+math:定积分的分部积分法  a        owl:Class , math:定积分的分部积分法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:积分区间有界 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_90 , math:id_91 , math:id_92 ;
+        math:sk_is       math:定积分的换元法 ;
+        math:weight_is   0.25 .
+
+math:定积分的换元法  a          owl:Class , math:定积分的换元法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:积分区间有界 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_93 , math:id_94 , math:id_95 ;
+        math:weight_is   0.25 .
+
+math:定积分的概念与性质  a         owl:Class , math:定积分的概念与性质 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的定积分 ;
+        math:demand_is    1.0 ;
+        math:description  "定积分问题举例,定积分的概念,定义,利用定义求定积分," ;
+        math:resource     math:id_84 , math:id_85 , math:id_86 ;
+        math:sk_is        math:定积分的近似计算 ;
+        math:weight_is    0.1 .
+
+math:定积分的近似计算  a         owl:Class , math:定积分的近似计算 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的定积分 ;
+        math:demand_is   0.2 ;
+        math:resource    math:id_100 ;
+        math:sk_is       math:积分上限的函数 ;
+        math:weight_is   0.05 .
+
+math:对数求导法  a            owl:Class , math:对数求导法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:初等函数的求导方法 ;
+        math:demand_is   1.0 ;
+        math:sk_is       math:函数的微分 ;
+        math:weight_is   0.2 .
+
+math:导数的基本概念  a           owl:Class , math:导数的基本概念 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的导数 ;
+        math:demand_is    1.0 ;
+        math:description  "导数定义,导数的几何意义,函数的可导性与连续性的关系,利用定义求导" ;
+        math:resource     math:id_14 , math:id_15 , math:id_37 , math:id_38 , math:id_61 , math:id_62 ;
+        math:sk_is        math:函数的基本求导法则 ;
+        math:weight_is    0.07 .
+
+math:微分的三个中值定理  a           owl:Class , math:微分的三个中值定理 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的微分 ;
+        math:beginningwith  math:拉格朗日中值定理 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_55 , math:id_56 , math:id_57 , math:id_58 , math:id_59 ;
+        math:weight_is      0.35 .
+
+math:微分的基本概念  a           owl:Class , math:微分的基本概念 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的微分 ;
+        math:demand_is    1.0 ;
+        math:description  "微分的几何意义,微分的定义,微分在近似计算中的应用" ;
+        math:resource     math:id_48 , math:id_49 ;
+        math:sk_is        math:基本初等函数的微分公式与微分运算法则 ;
+        math:weight_is    0.3 .
+
+math:拉格朗日中值定理  a         owl:Class , math:拉格朗日中值定理 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:微分的三个中值定理 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_55 , math:id_56 ;
+        math:sk_is       math:柯西中值定理 ;
+        math:weight_is   0.4 .
+
+math:换元积分法  a            owl:Class , math:换元积分法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:积分方法 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_75 , math:id_76 , math:id_77 , math:id_78 ;
+        math:sk_is       math:分部积分法 ;
+        math:weight_is   0.5 .
+
+math:数列极限  a              owl:Class , math:数列极限 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:math ;
+        math:demand_is    1.0 ;
+        math:description  "定义，证明方法，收敛数列的性质" ;
+        math:resource     math:id_17 , math:id_19 , math:id_20 ;
+        math:sk_is        math:函数的极限 ;
+        math:weight_is    0.05 .
+
+math:无穷小与无穷大  a             owl:Class , math:无穷小与无穷大 , owl:NamedIndividual ;
+        rdfs:subClassOf     math:函数的极限 ;
+        math:beginningwith  math:无穷小与无穷大的基本概念以及证明方法 ;
+        math:demand_is      1.0 ;
+        math:resource       math:id_12 , math:id_13 , math:id_23 ;
+        math:weight_is      0.25 .
+
+math:无穷小与无穷大的基本概念以及证明方法
+        a                owl:Class , math:无穷小与无穷大的基本概念以及证明方法 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:无穷小与无穷大 ;
+        math:demand_is   1.0 ;
+        math:sk_is       math:极限运算法则 ;
+        math:weight_is   0.5 .
+
+math:无穷小的比较  a            owl:Class , math:无穷小的比较 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:无穷小与无穷大 ;
+        math:demand_is    1.0 ;
+        math:description  "不同类型的无穷小,等价无穷小在求极限中的应用" ;
+        math:resource     math:id_12 , math:id_13 ;
+        math:weight_is    0.5 .
+
+math:映射  a                owl:Class , math:映射 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:math ;
+        math:demand_is    1.0 ;
+        math:description  "概念，逆映射与复合映射" ;
+        math:resource     math:id_16 ;
+        math:sk_is        math:函数 ;
+        math:weight_is    0.05 .
+
+math:有理函数的积分  a           owl:Class , math:有理函数的积分 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的不定积分 ;
+        math:demand_is    1.0 ;
+        math:description  "有理函数求积分法,其他函数转为有理函数" ;
+        math:resource     math:id_81 , math:id_82 , math:id_83 ;
+        math:weight_is    0.25 .
+
+math:极值与最值  a                owl:Class , math:极值与最值 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:函数的极值 ;
+        math:demand_is       1.0 ;
+        math:sk_is           math:极值的应用：函数图形的描绘 ;
+        math:weight_is       0.4 ;
+        owl:equivalentClass  math:求函数的最值和极值 .
+
+math:极值基本概念  a            owl:Class , math:极值基本概念 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的极值 ;
+        math:demand_is    1.0 ;
+        math:description  "函数极值的定义,极值的求法,极值点与拐点之间的关系" ;
+        math:sk_is        math:极值与最值 ;
+        math:weight_is    0.25 .
+
+math:极限存在准则和两个重要极限  a     owl:Class , math:极限存在准则和两个重要极限 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的极限 ;
+        math:demand_is    1.0 ;
+        math:description  "夹逼准则和对应的第一极限,单调有界数列必有极限和对应的第二极限" ;
+        math:resource     math:id_28 , math:id_29 , math:id_30 ;
+        math:sk_is        math:无穷小的比较 ;
+        math:weight_is    0.25 .
+
+math:极限运算法则  a            owl:Class , math:极限运算法则 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的极限 ;
+        math:demand_is    1.0 ;
+        math:description  "求极限的方式之一" ;
+        math:resource     math:id_24 , math:id_25 , math:id_26 ;
+        math:sk_is        math:极限存在准则和两个重要极限 ;
+        math:weight_is    0.25 .
+
+math:柯西中值定理  a           owl:Class , math:柯西中值定理 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:微分的三个中值定理 ;
+        math:demand_is   0.2 ;
+        math:resource    math:id_57 ;
+        math:sk_is       math:罗尔定理 ;
+        math:weight_is   0.2 .
+
+math:求体积  a              owl:Class , math:求体积 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:在几何上的应用 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_103 ;
+        math:sk_is       math:求平面曲线的弧长 ;
+        math:weight_is   0.35 .
+
+math:求函数的最值  a          owl:NamedIndividual ;
+        math:demand_is  1.0 ;
+        math:weight_is  0.15 .
+
+math:求函数的极值  a          owl:NamedIndividual ;
+        math:demand_is  1.0 ;
+        math:weight_is  0.15 .
+
+math:求平面图形的面积  a         owl:Class , math:求平面图形的面积 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:在几何上的应用 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_104 ;
+        math:sk_is       math:求体积 ;
+        math:weight_is   0.35 .
+
+math:求平面曲线的弧长  a         owl:Class , math:求平面曲线的弧长 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:在几何上的应用 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_105 ;
+        math:weight_is   0.3 .
+
+math:泰勒公式  a                 owl:Class , math:泰勒公式 , owl:NamedIndividual ;
+        rdfs:subClassOf      math:函数的导数 ;
+        math:demand_is       1.0 ;
+        math:resource        math:id_63 , math:id_64 , math:id_65 , math:id_66 ;
+        math:sk_is           math:函数的极值 ;
+        math:weight_is       0.1 ;
+        owl:equivalentClass  math:近似表达复杂函数 .
+
+math:近似表达复杂函数  a         owl:Class , math:近似表达复杂函数 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:导数的应用 ;
+        math:demand_is   1.0 ;
+        math:equi        "yes" ;
+        math:resource    math:id_63 , math:id_64 , math:id_65 , math:id_66 ;
+        math:weight_is   0.2 .
+
+math:洛必达法则  a            owl:Class , math:洛必达法则 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的导数 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_60 ;
+        math:sk_is       math:泰勒公式 ;
+        math:weight_is   0.1 .
+
+math:积分上限的函数  a           owl:Class , math:积分上限的函数 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的定积分 ;
+        math:demand_is    0.6 ;
+        math:description  "积分上限函数的概念,求导定理" ;
+        math:resource     math:id_98 , math:id_99 ;
+        math:sk_is        math:牛顿-莱布尼茨公式 ;
+        math:weight_is    0.1 .
+
+math:积分表  a               owl:Class , math:积分表 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的不定积分 ;
+        math:demand_is    1.0 ;
+        math:description  "基本积分表,常用积分表的使用" ;
+        math:sk_is        math:积分方法 ;
+        math:weight_is    0.2 .
+
+math:罗尔定理  a             owl:Class , math:罗尔定理 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:微分的三个中值定理 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_58 , math:id_59 ;
+        math:weight_is   0.4 .
+
+math:连续函数的和差积商运算  a      owl:Class , math:连续函数的和差积商运算 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的连续性 ;
+        math:demand_is   0.6 ;
+        math:resource    math:id_33 , math:id_34 ;
+        math:sk_is       math:闭区间上连续函数的性质 ;
+        math:weight_is   0.5 .
+
+math:闭区间上连续函数的性质  a       owl:Class , math:闭区间上连续函数的性质 , owl:NamedIndividual ;
+        rdfs:subClassOf   math:函数的连续性 ;
+        math:demand_is    0.2 ;
+        math:description  "介值定理，有界性，最大值最小值定理，零点定理" ;
+        math:resource     math:id_35 ;
+        math:sk_is        math:函数的导数 ;
+        math:weight_is    0.2 .
+
+math:隐函数求导  a            owl:Class , math:隐函数求导 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:初等函数的求导方法 ;
+        math:demand_is   1.0 ;
+        math:resource    math:id_45 , math:id_46 , math:id_47 ;
+        math:sk_is       math:对数求导法 ;
+        math:weight_is   0.2 .
+
+math:高阶导数  a             owl:Class , math:高阶导数 , owl:NamedIndividual ;
+        rdfs:subClassOf  math:函数的导数 ;
+        math:demand_is   0.2 ;
+        math:resource    math:id_43 , math:id_44 ;
+        math:sk_is       math:初等函数的求导方法 ;
+        math:weight_is   0.03 .
+
+owl:Thing  rdfs:comment  "thing代表高等数学上册" .
+
+math:id_17  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_18  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:equi  a          owl:DatatypeProperty ;
+        rdfs:comment  "yes意味着他只是用来显示，关于它的资源要找它的equivalent" ;
+        rdfs:domain   math:math ;
+        rdfs:range    xsd:string .
+
+math:求函数的最值和极值  a        owl:Class , owl:NamedIndividual , math:求函数的最值和极值 ;
+        rdfs:subClassOf  math:导数的应用 ;
+        math:demand_is   1.0 ;
+        math:equi        "yes" ;
+        math:weight_is   0.2 .
+
+math:id_19  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_20  math:difficulty_is  0.200000 , 1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_21  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_22  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_12  math:difficulty_is  0.200000 ;
+        math:quality_is     0.010000 .
+
+math:id_13  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_14  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_15  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_16  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_23  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_24  math:difficulty_is  0.200000 ;
+        math:quality_is     0.010000 .
+
+math:id_25  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_26  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_27  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_28  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_29  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_30  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_31  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_32  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_33  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_34  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_35  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_36  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_37  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_38  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_39  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_40  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_41  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_42  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_43  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_44  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_45  math:difficulty_is  0.200000 ;
+        math:quality_is     0.010000 .
+
+math:id_46  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_47  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_48  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_49  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_50  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_51  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_52  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_53  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_54  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_55  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_56  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_57  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_58  math:difficulty_is  0.600000 ;
+        math:quality_is     0.010000 .
+
+math:id_59  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_60  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_61  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_62  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_63  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_64  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_65  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_66  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_67  math:difficulty_is  0.600000 ;
+        math:quality_is     0.090000 .
+
+math:id_68  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_69  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_70  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_71  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_72  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_73  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_74  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_75  math:difficulty_is  0.200000 ;
+        math:quality_is     0.020000 .
+
+math:id_76  math:difficulty_is  0.600000 ;
+        math:quality_is     0.030000 .
+
+math:id_77  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_78  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_79  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_80  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_81  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_82  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_83  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_84  math:difficulty_is  0.200000 ;
+        math:quality_is     0.020000 .
+
+math:id_85  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_86  math:difficulty_is  1.000000 ;
+        math:quality_is     0.380000 .
+
+math:id_87  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_88  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_89  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_90  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_91  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_92  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_93  math:difficulty_is  0.200000 ;
+        math:quality_is     0.000000 .
+
+math:id_94  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_95  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_96  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_97  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_98  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_99  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_100  math:difficulty_is  1.000000 ;
+        math:quality_is     0.350000 .
+
+math:id_101  math:difficulty_is  0.600000 ;
+        math:quality_is     0.000000 .
+
+math:id_102  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_103  math:difficulty_is  1.000000 ;
+        math:quality_is     0.010000 .
+
+math:id_104  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
+
+math:id_105  math:difficulty_is  1.000000 ;
+        math:quality_is     0.000000 .
