@@ -1,6 +1,6 @@
 # SPARQL 查询操作
 
-关于 SPARQL 查询操作主要在```/project/glgl_app/knowledge.py```文件中
+关于 SPARQL 查询操作主要在```/project/glgl_app/knowledge.py```文件中，从中理解一些常见的查询语句。
 
 首先在 MacOS 系统上安装  jena 命令行工具 ，其他 Linux 系统类似
 
